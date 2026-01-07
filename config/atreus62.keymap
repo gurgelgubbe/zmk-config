@@ -69,6 +69,20 @@ Key positions:
             bindings = <&to 0>;
             key-positions = <5 6 54 53>;
         };
+
+        r_enter {
+            bindings = <&kp ENTER>;
+            key-positions = <43 44>;
+            timeout-ms = <100>;
+            require-prior-idle-ms = <25>;
+        };
+
+        r_backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <21 20>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <75>;
+        };
     };
 
     keymap {
@@ -76,16 +90,16 @@ Key positions:
 
         base {
             bindings = <
-&kp LC(ESC)  &kp N1       &kp N2         &kp N3    &kp N4    &kp N5                &kp N6          &kp N7      &kp N8     &kp N9         &kp N0    &kp BACKSPACE
-&kp TAB      &kp Q        &kp W          &kp F     &kp P     &kp B                 &kp J           &kp L       &kp U      &kp Y          &kp LBKT  &kp LBKT
-&kp LSHIFT   &kp A        &kp R          &kp S     &kp T     &kp G                 &kp M           &kp N       &kp E      &kp SEMI       &kp SQT   &mt RSHIFT ENTER
-&kp LCTRL    &kp Z        &kp X          &kp C     &kp D     &kp V                 &kp K           &kp H       &kp O      &kp BACKSLASH  &kp UP    &kp RCTRL
-&none        &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LALT  &modsLeft LCTRL LGUI  &kp COMMA       &kp PERIOD  &kp UNDER  &kp LEFT       &kp DOWN  &kp RIGHT
-                                                             &kp MINUS             &mo_kp 1 SPACE
+&kp ESC        &kp N1       &kp N2         &kp N3    &kp N4    &kp N5     &kp N6          &kp N7      &kp N8     &kp N9    &kp N0    &kp BACKSPACE
+&kp TAB        &kp Q        &kp W          &kp F     &kp P     &kp B      &kp J           &kp L       &kp U      &kp Y     &kp LBKT  &kp DEL
+&kp LSHIFT     &kp A        &kp R          &kp S     &kp T     &kp G      &kp M           &kp N       &kp E      &kp SEMI  &kp SQT   &mt RSHIFT ENTER
+&kp LCTRL      &kp Z        &kp X          &kp C     &kp D     &kp V      &kp K           &kp H       &kp O      &kp I     &kp UP    &kp RCTRL
+&kp BACKSLASH  &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LGUI  &kp LALT   &kp COMMA       &kp PERIOD  &kp SLASH  &kp LEFT  &kp DOWN  &kp RIGHT
+                                                               &kp MINUS  &mo_kp 1 SPACE
             >;
         };
 
-        layer_2 {
+        func {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
