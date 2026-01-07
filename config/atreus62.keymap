@@ -43,50 +43,31 @@ Key positions:
             require-prior-idle-ms = <125>;
         };
 
-        morph_symNav_alt: morph_symNav_alt {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MORPH_SYMNAV_ALT";
-            bindings = <&mo 1>, <&mo 0>;
+        mo_kp: mo_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MO_KP";
+            bindings = <&mo>, <&kp>;
 
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
+            #binding-cells = <2>;
+            tapping-term-ms = <225>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <125>;
+            flavor = "balanced";
         };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        c_enter_r {
-            bindings = <&kp ENTER>;
-            key-positions = <43 44>;
-            timeout-ms = <75>;
+        to_fw {
+            bindings = <&to 2>;
+            key-positions = <11 48 59 0>;
+            timeout-ms = <200>;
         };
 
-        c_backspace_r {
-            bindings = <&kp BACKSPACE>;
-            key-positions = <19 20>;
-            timeout-ms = <100>;
-        };
-
-        c_delete_r {
-            bindings = <&kp DELETE>;
-            key-positions = <20 21>;
-            timeout-ms = <100>;
-        };
-
-        c_esc_l {
-            bindings = <&kp ESCAPE>;
-            key-positions = <0 1>;
-        };
-
-        bootloader {
-            bindings = <&bootloader>;
-            key-positions = <59 0>;
-        };
-
-        bt_clear {
-            bindings = <&bt BT_CLR_ALL>;
-            key-positions = <48 11>;
+        to_base {
+            bindings = <&to 0>;
+            key-positions = <5 6 54 53>;
         };
     };
 
@@ -95,38 +76,16 @@ Key positions:
 
         base {
             bindings = <
-&kp LC(ESC)  &kp N1       &kp N2         &kp N3    &kp N4    &kp N5                &kp N6     &kp N7      &kp N8     &kp N9         &kp N0    &kp BACKSPACE
-&kp TAB      &kp Q        &kp W          &kp F     &kp P     &kp B                 &kp J      &kp L       &kp U      &kp Y          &kp LBKT  &kp LBKT
-&kp LSHIFT   &kp A        &kp R          &kp S     &kp T     &kp G                 &kp M      &kp N       &kp E      &kp SEMI       &kp SQT   &mt RSHIFT ENTER
-&kp LCTRL    &kp Z        &kp X          &kp C     &kp D     &kp V                 &kp K      &kp H       &kp O      &kp BACKSLASH  &kp UP    &kp RCTRL
-&none        &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LALT  &modsLeft LCTRL LGUI  &kp COMMA  &kp PERIOD  &kp UNDER  &kp LEFT       &kp DOWN  &kp RIGHT
-                                                             &kp MINUS             &kp SPACE
+&kp LC(ESC)  &kp N1       &kp N2         &kp N3    &kp N4    &kp N5                &kp N6          &kp N7      &kp N8     &kp N9         &kp N0    &kp BACKSPACE
+&kp TAB      &kp Q        &kp W          &kp F     &kp P     &kp B                 &kp J           &kp L       &kp U      &kp Y          &kp LBKT  &kp LBKT
+&kp LSHIFT   &kp A        &kp R          &kp S     &kp T     &kp G                 &kp M           &kp N       &kp E      &kp SEMI       &kp SQT   &mt RSHIFT ENTER
+&kp LCTRL    &kp Z        &kp X          &kp C     &kp D     &kp V                 &kp K           &kp H       &kp O      &kp BACKSLASH  &kp UP    &kp RCTRL
+&none        &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LALT  &modsLeft LCTRL LGUI  &kp COMMA       &kp PERIOD  &kp UNDER  &kp LEFT       &kp DOWN  &kp RIGHT
+                                                             &kp MINUS             &mo_kp 1 SPACE
             >;
         };
 
-        symNav {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt UNDER MINUS  &mt LBRC LBKT  &mt RBRC RBKT  &kp LPAR        &kp RPAR       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt COLON SEMI   &kp LEFT       &kp DOWN       &kp UP          &kp RIGHT      &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt PLUS EQUAL   &mt LT COMMA   &mt GT DOT     &mt QMARK FSLH  &mt PIPE BSLH  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
-                                        &trans  &trans
-            >;
-        };
-
-        symNav_alt {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt UNDER MINUS  &mt LBRC LBKT  &mt RBRC RBKT  &kp LPAR        &kp RPAR       &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt COLON SEMI   &kp HOME       &kp PG_DN      &kp PG_UP       &kp END        &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mt PLUS EQUAL   &mt LT COMMA   &mt GT DOT     &mt QMARK FSLH  &mt PIPE BSLH  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans           &trans         &trans         &trans          &trans         &trans
-                                        &trans  &trans
-            >;
-        };
-
-        layer_3 {
+        layer_2 {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -134,6 +93,17 @@ Key positions:
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                         &trans  &trans
+            >;
+        };
+
+        fw {
+            bindings = <
+&bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &kp PERIOD  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT
+&kp DOT         &kp DOT       &kp DOT       &kp DOT       &kp DOT       &kp DOT     &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT
+&kp DOT         &kp DOT       &kp DOT       &kp DOT       &kp DOT       &kp DOT     &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT
+&kp DOT         &kp DOT       &kp DOT       &kp DOT       &kp DOT       &kp DOT     &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT
+&kp DOT         &kp DOT       &kp DOT       &kp DOT       &kp DOT       &kp DOT     &kp DOT  &kp DOT  &kp DOT  &kp DOT  &kp DOT  &bootloader
+                                                                        &kp DOT     &kp DOT
             >;
         };
     };
