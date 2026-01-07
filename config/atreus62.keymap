@@ -79,7 +79,21 @@ Key positions:
 
         r_backspace {
             bindings = <&kp BACKSPACE>;
-            key-positions = <21 20>;
+            key-positions = <19 20>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <75>;
+        };
+
+        r_delete {
+            bindings = <&kp DEL>;
+            key-positions = <20 21>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <75>;
+        };
+
+        r_tab {
+            bindings = <&kp TAB>;
+            key-positions = <19 18>;
             timeout-ms = <50>;
             require-prior-idle-ms = <75>;
         };
@@ -90,22 +104,22 @@ Key positions:
 
         base {
             bindings = <
-&kp ESC        &kp N1       &kp N2         &kp N3    &kp N4    &kp N5     &kp N6          &kp N7      &kp N8     &kp N9    &kp N0    &kp BACKSPACE
-&kp TAB        &kp Q        &kp W          &kp F     &kp P     &kp B      &kp J           &kp L       &kp U      &kp Y     &kp LBKT  &kp DEL
-&kp LSHIFT     &kp A        &kp R          &kp S     &kp T     &kp G      &kp M           &kp N       &kp E      &kp SEMI  &kp SQT   &mt RSHIFT ENTER
-&kp LCTRL      &kp Z        &kp X          &kp C     &kp D     &kp V      &kp K           &kp H       &kp O      &kp I     &kp UP    &kp RCTRL
-&kp BACKSLASH  &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LGUI  &kp LALT   &kp COMMA       &kp PERIOD  &kp SLASH  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp ESC        &kp N1       &kp N2         &kp N3    &kp N4    &kp N5     &kp N6          &kp N7     &kp N8      &kp N9    &kp N0    &kp BACKSPACE
+&kp TAB        &kp Q        &kp W          &kp F     &kp P     &kp B      &kp J           &kp L      &kp U       &kp Y     &kp LBKT  &kp DEL
+&kp LSHIFT     &kp A        &kp R          &kp S     &kp T     &kp G      &kp M           &kp N      &kp E       &kp SEMI  &kp SQT   &kp RSHIFT
+&kp LCTRL      &kp Z        &kp X          &kp C     &kp D     &kp V      &kp K           &kp H      &kp O       &kp I     &kp UP    &kp RCTRL
+&kp BACKSLASH  &kp PAGE_UP  &kp PAGE_DOWN  &kp RALT  &kp LGUI  &kp LALT   &kp SLASH       &kp COMMA  &kp PERIOD  &kp LEFT  &kp DOWN  &kp RIGHT
                                                                &kp MINUS  &mo_kp 1 SPACE
             >;
         };
 
         func {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp F11  &kp F12  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans   &trans   &trans
                                         &trans  &trans
             >;
         };
